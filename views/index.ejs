@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            BLOG WEBSITE
+        </h1>
+
+        <section class="create-blog">
+            <h2>Create a Blog</h2>
+            <form action = "/submit" method="POST">
+                <label for="Author">Author</label>
+                <input type="text" name="author" required>
+
+                <label for="Blog Title">Blog Title</label>
+                <input type="text" name="blog_title" required>
+
+                <label for="Blog">Blog</label>
+                <input type="text" name="blog" required>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        
+        <section class="blogs-list">
+            <h2>BLOGS</h2>
+            <ul>
+                <% blogs.forEach(function(blog, index) { %>
+                    <li class="blog-item">
+                        <h3><%= blog.blog_title %></h3>
+                        <p>By: <%= blog.author %> Date: <%= blog.date %></p>
+                        <p><%= blog.blog %></p> <br>
+
+                        <div class="blog-buttons">
+                            <form action="/delete" method="POST">
+                                <input type="hidden" name="index" value="<%= index %>">
+                                <button type="submit">Delete</button>
+                            </form>
+                            <a href="/edit/<%= index %>">
+                                <button type="button">Edit</button>
+                            </a>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

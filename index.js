@@ -6,7 +6,7 @@ const port = 3000;
 
 let blogs = [];
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {

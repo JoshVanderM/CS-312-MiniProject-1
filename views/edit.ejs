@@ -9,14 +9,18 @@
 <body>
     <div class="container">
         <h1>EDIT</h1>
+        
         <section class="edit-blog">
             <form action = "/update/<%= index %>" method="POST">
                 <label for="Author">Author</label>
                 <input type="text" name="author" value="<%= blog.author %>" required>
+
                 <label for="Blog Title">Blog Title</label>
                 <input type="text" name="blog_title" value="<%= blog.blog_title %>" required>
+
                 <label for="Blog">Blog</label>
                 <input type="text" name="blog" value="<%= blog.blog %>" required>
+
                 <button type="submit">Update Blog</button>
             </form>
             <br>

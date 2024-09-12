@@ -9,8 +9,9 @@
 <body>
     <div class="container">
         <h1>EDIT</h1>
-        
+
         <section class="edit-blog">
+            <! -- this is a form to update the blog data ->
             <form action = "/update/<%= index %>" method="POST">
                 <label for="Author">Author</label>
                 <input type="text" name="author" value="<%= blog.author %>" required>
@@ -24,6 +25,7 @@
                 <button type="submit">Update Blog</button>
             </form>
             <br>
+            <! -- button to return home without making changes ->
             <a href="/">
                 <button type="button">Go Back Home</button>
             </a>

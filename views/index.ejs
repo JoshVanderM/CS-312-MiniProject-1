@@ -9,9 +9,10 @@
 <body>
     <div class="container">
         <h1>BLOG WEBSITE</h1>
-        
+
         <section class="create-blog">
             <h2>Create a Blog</h2>
+            <! -- this is a form to get the blog data ->
             <form action = "/submit" method="POST">
                 <label for="Author">Author</label>
                 <input type="text" name="author" required>
@@ -29,17 +30,20 @@
         <section class="blogs-list">
             <h2>BLOGS</h2>
             <ul>
+                <! -- Loop through the blogs and print in order ->
                 <% blogs.forEach(function(blog, index) { %>
                     <li class="blog-item">
                         <h3><%= blog.blog_title %></h3>
                         <p>By: <%= blog.author %> Date: <%= blog.date %></p>
                         <p><%= blog.blog %></p> <br>
-
+                        
+                        <! -- Buttons to Delete and Edit the blog ->
                         <div class="blog-buttons">
                             <form action="/delete" method="POST">
                                 <input type="hidden" name="index" value="<%= index %>">
                                 <button type="submit">Delete</button>
                             </form>
+                            <! -- return the index so we know which blog to edit ->
                             <a href="/edit/<%= index %>">
                                 <button type="button">Edit</button>
                             </a>
